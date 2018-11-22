@@ -7,13 +7,13 @@ cd frontend && yarn install
 cd backend && yarn install
 ```
 
-run dev server with vue
+run dev vue server 
 ```
 cd frontend
 yarn serve
 ```
 
-run dev server with express
+run dev express server
 ```
 cd backend
 yarn dev
