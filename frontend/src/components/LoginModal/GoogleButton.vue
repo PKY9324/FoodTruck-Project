@@ -1,5 +1,5 @@
 <template>
-    <router-link to="/auth/google" tag="button" class="google">
+    <button class="google" @click.prevent="onSigninGoogle">
         <span>
             <font-awesome-icon :icon="googleIcon" size="2x" />
         </span>
@@ -7,23 +7,30 @@
             구글로 로그인
         </span>
         <span></span>
-    </router-link>
+    </button>
 </template>
 
 <script>
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faGoogle } from '@fortawesome/free-brands-svg-icons'
+import firebase from 'firebase/app'
+
 export default {
-  name: "GoogleButton",
+  name: 'GoogleButton',
+  methods: {
+    onSigninGoogle() {
+      this.$store.dispatch('signUserInGoogle')
+    }
+  },
   computed: {
     googleIcon() {
-      return faGoogle;
+      return faGoogle
     }
   },
   components: {
     FontAwesomeIcon
   }
-};
+}
 </script>
 
 <style>
