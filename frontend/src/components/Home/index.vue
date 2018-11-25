@@ -20,7 +20,6 @@
 import HomeSearchInput from './HomeSearchInput'
 import UserLogin from './UserLogin'
 import HomeLogo from './HomeLogo'
-import * as firebase from 'firebase'
 
 export default {
   components: {

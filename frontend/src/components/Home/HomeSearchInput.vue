@@ -3,29 +3,55 @@
     <div class="container-1">
       <span class="icon">
         <font-awesome-icon :icon="icon" size="2x" />
-        </span>
-      <span>
-        <button class="search-button">검색</button>
       </span>
-      <input type="search" id="search" placeholder=". . .지역, 이름" />
+
+      <input 
+        type="search" 
+        id="search" 
+        placeholder=". . .지역, 이름" 
+        v-model="location"
+      />
+
+      <span>
+        <router-link
+          to="/search"
+          class="search-button"
+          @click="submitSearch()"
+        >
+          검색
+        </router-link>
+      </span>
     </div>
   </div>
 </template>
 
 <script>
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { db } from '../../../config/firebaseInit.js'
+import { bus } from '../../utils/bus.js'
+
 export default {
-  name: "SearchInput",
+  name: 'SearchInput',
+  data() {
+    return {
+      location: ''
+    }
+  },
+  methods: {
+    submitSearch() {
+      bus.$emit('submit-search', this.location)
+    }
+  },
   computed: {
     icon() {
-      return faSearch;
+      return faSearch
     }
   },
   components: {
     FontAwesomeIcon
   }
-};
+}
 </script>
 
 <style>
@@ -85,6 +111,7 @@ input::placeholder {
   border: none;
   border-radius: 80px;
   z-index: 1;
+  cursor: pointer;
 }
 
 .container-1 .icon {

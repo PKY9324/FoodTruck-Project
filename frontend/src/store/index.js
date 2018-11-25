@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { firebase } from '@firebase/app'
+import firebase from 'firebase/app'
 import createPersistedState from 'vuex-persistedstate'
 
 Vue.use(Vuex)
@@ -21,6 +21,7 @@ export const store = new Vuex.Store({
     },
     LOGOUT_SUCCESS(state) {
       state.isAuth = false
+      // console.log('로그아웃')
     }
   },
   actions: {

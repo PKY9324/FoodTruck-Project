@@ -17,7 +17,6 @@
 <script>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons'
-import * as firebase from 'firebase'
 
 import LoginModal from '../LoginModal/index'
 import LogoutButton from './LogoutButton'
@@ -26,6 +25,12 @@ import { mapState, mapMutations } from 'vuex'
 
 export default {
   name: 'UsearLogin',
+  computed: {
+    ...mapState(['isAuth']),
+    icon() {
+      return faUserPlus
+    }
+  },
   methods: {
     modal_rendar() {
       this.$modal.show(
@@ -40,12 +45,6 @@ export default {
       )
     },
     ...mapMutations(['SET_AUTH'])
-  },
-  computed: {
-    ...mapState(['isAuth']),
-    icon() {
-      return faUserPlus
-    }
   },
   components: {
     FontAwesomeIcon,
