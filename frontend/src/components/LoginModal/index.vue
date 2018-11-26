@@ -13,29 +13,29 @@
 </template>
 
 <script>
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import FacebookButton from "./FacebookButton";
-import GoogleButton from "./GoogleButton";
-import KakaoButton from "./KakaoButton";
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import FacebookButton from './FacebookButton'
+import GoogleButton from './GoogleButton'
+import KakaoButton from './KakaoButton'
 
 export default {
-  name: "LoginModal",
+  name: 'LoginModal',
   computed: {
     closeIcon() {
-      return faTimes;
+      return faTimes
     }
   },
   components: {
     FontAwesomeIcon,
-    "facebook-button": FacebookButton,
-    "google-button": GoogleButton,
-    "kakao-button": KakaoButton
+    'facebook-button': FacebookButton,
+    'google-button': GoogleButton,
+    'kakao-button': KakaoButton
   }
-};
+}
 </script>
 
-<style scoped>
+<style>
 .container {
   position: relative;
   padding: 0;

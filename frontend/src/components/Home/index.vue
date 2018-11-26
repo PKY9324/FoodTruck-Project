@@ -30,7 +30,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .background {
   position: fixed;
   width: 100vw;

@@ -1,30 +1,24 @@
 const functions = require('firebase-functions')
 const admin = require('firebase-admin')
-admin.initializeApp(functions.config().firebase)
+admin.initializeApp()
 
 const algoliasearch = require('algoliasearch')
-const algolia = algoliasearch(
-  functions.config().algolia.appid,
-  functions.config().algolia.adminkey
+const client = algoliasearch(
+  functions.config().algolia.app_id,
+  functions.config().algolia.api_key
 )
 
-exports.updateIndex = functions.database.ref('foodtrucks').onWrite(event => {
-  const index = algolia.initIndex('foodtruck')
+const ALGOLIA_POSTS_INDEX_NAME = 'foodtruck'
 
-  const bookId = event.params.bookId
-  const data = event.data.val()
+// // Updates the search index when new blog entries are created or updated.
+// exports.indexentry = functions.database.ref('/foodtrucks').onWrite(
+//     async (data, context) => {
+//       const index = client.initIndex(ALGOLIA_POSTS_INDEX_NAME);
+//       const firebaseObject = {
+//         text: data.after.val(),
+//         objectID: context.params.blogid
+//       };
 
-  if (!data) {
-    return index.deleteObject(bookId, err => {
-      if (err) throw err
-      console.log('Removed from Algolia Index', bookId)
-    })
-  }
-
-  data['objectID'] = bookId
-
-  return index.saveObject(data, (err, content) => {
-    if (err) throw err
-    console.log('Updated in Algolia Index', data.objectID)
-  })
-})
+//       await index.saveObject(firebaseObject);
+//       return data.after.ref.parent.child('last_index_timestamp').set(Date.parse(context.timestamp));
+//     });

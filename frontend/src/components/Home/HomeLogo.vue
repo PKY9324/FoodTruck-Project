@@ -4,11 +4,11 @@
 
 <script>
 export default {
-  name: "HomeLogo"
-};
+  name: 'HomeLogo'
+}
 </script>
 
-<style scoped>
+<style>
 img {
   position: absolute;
   top: 0;

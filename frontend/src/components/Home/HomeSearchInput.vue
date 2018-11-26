@@ -4,23 +4,23 @@
       <span class="icon">
         <font-awesome-icon :icon="icon" size="2x" />
       </span>
-
-      <input 
-        type="search" 
-        id="search" 
-        placeholder=". . .지역, 이름" 
-        v-model="location"
-      />
-
-      <span>
-        <router-link
-          to="/search"
-          class="search-button"
-          @click="submitSearch()"
-        >
-          검색
-        </router-link>
-      </span>
+      <ais-index
+        app-id="GN5E22XFPN"
+        api-key="2dd47b9aa13c9ebf4bb356688c7d91b8"
+        index-name="foodtruck_location"
+      >
+        <ais-search-box 
+          placeholder="지역, 이름..."
+        />
+        <button 
+          type="submit"
+        >검색</button>
+        <!-- <ais-results v-if="false">
+          <template slot-scope="{ result }">
+            <ais-highlight :result="result" attribute-name="local" />
+          </template>
+        </ais-results> -->
+      </ais-index>
     </div>
   </div>
 </template>
@@ -28,19 +28,12 @@
 <script>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
-import { db } from '../../../config/firebaseInit.js'
-import { bus } from '../../utils/bus.js'
 
 export default {
   name: 'SearchInput',
-  data() {
-    return {
-      location: ''
-    }
-  },
   methods: {
-    submitSearch() {
-      bus.$emit('submit-search', this.location)
+    RoutedSearch() {
+      router.push({})
     }
   },
   computed: {
@@ -54,7 +47,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .search-input {
   all: unset;
   position: absolute;
@@ -73,29 +66,6 @@ export default {
   position: relative;
 }
 
-.container-1 input#search {
-  width: 800px;
-  height: 60px;
-  background: rgb(230, 230, 230);
-  border: none;
-  font-size: 10pt;
-  color: #63717f;
-  padding-left: 45px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 80px;
-}
-
-input#search {
-  all: unset;
-  border: none;
-  font-weight: 600;
-}
-
-input::placeholder {
-  font-size: 18px;
-}
-
 .search-button {
   all: unset;
   text-align: center;
@@ -103,6 +73,7 @@ input::placeholder {
   background-color: rgb(52, 152, 219);
   border: none;
   right: 0;
+  bottom: 0;
   width: 170px;
   height: 60px;
   font-weight: 600;
@@ -124,5 +95,54 @@ input::placeholder {
   position: absolute;
   left: 10px;
   top: 25%;
+}
+
+button[type='reset'] {
+  visibility: hidden;
+}
+
+input[type='search'] {
+  all: unset;
+  font-weight: 600;
+  width: 750px;
+  height: 60px;
+  background: rgb(230, 230, 230);
+  border: none;
+  font-size: 10pt;
+  color: #63717f;
+  padding-left: 45px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 80px;
+  &::placeholder {
+    font-size: 18px;
+  }
+}
+
+button[type='submit'] {
+  all: unset;
+  text-align: center;
+  position: absolute;
+  background-color: rgb(52, 152, 219);
+  border: none;
+  right: 0;
+  bottom: 0;
+  width: 170px;
+  height: 60px;
+  font-weight: 600;
+  font-size: 25px;
+  color: white;
+  border: none;
+  border-radius: 80px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+button[type='submit'] > svg {
+  visibility: hidden;
+}
+
+.ais-results {
+  color: white;
 }
 </style>

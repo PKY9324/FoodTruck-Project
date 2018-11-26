@@ -54,7 +54,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .add-user-button {
   all: unset;
   position: absolute;
