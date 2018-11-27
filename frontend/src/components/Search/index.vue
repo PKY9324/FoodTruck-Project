@@ -1,20 +1,32 @@
 <template>
-  <ais-index
-    app-id="GN5E22XFPN"
-    api-key="2dd47b9aa13c9ebf4bb356688c7d91b8"
-    index-name="foodtruck_location"
-  >
-    <ais-search-box></ais-search-box>
-    <ais-results>
+  <ais-index :search-store="searchStore">
+    <ais-input></ais-input>
+    <ais-results v-show="searchStore.query.length > 0">
       <template slot-scope="{ result }">
-        <ais-highlight :result="result" attribute-name="local" />
+        <div>
+          <ais-highlight :result="result" attribute-name="local"></ais-highlight>
+        </div>
       </template>
     </ais-results>
   </ais-index>
 </template>
 
 <script>
+import { createFromAlgoliaCredentials } from 'vue-instantsearch'
+
+const searchStore = createFromAlgoliaCredentials(
+  'GN5E22XFPN',
+  '2dd47b9aa13c9ebf4bb356688c7d91b8'
+)
+
+searchStore.indexName = 'foodtruck_location'
+
+export default {
+  data() {
+    return { searchStore }
+  }
+}
 </script>
 
-<style>
+<style lang="scss">
 </style>

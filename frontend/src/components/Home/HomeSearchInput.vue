@@ -4,23 +4,6 @@
       <span class="icon">
         <font-awesome-icon :icon="icon" size="2x" />
       </span>
-      <ais-index
-        app-id="GN5E22XFPN"
-        api-key="2dd47b9aa13c9ebf4bb356688c7d91b8"
-        index-name="foodtruck_location"
-      >
-        <ais-search-box 
-          placeholder="지역, 이름..."
-        />
-        <button 
-          type="submit"
-        >검색</button>
-        <!-- <ais-results v-if="false">
-          <template slot-scope="{ result }">
-            <ais-highlight :result="result" attribute-name="local" />
-          </template>
-        </ais-results> -->
-      </ais-index>
     </div>
   </div>
 </template>
@@ -47,7 +30,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .search-input {
   all: unset;
   position: absolute;

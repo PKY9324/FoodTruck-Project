@@ -9,10 +9,6 @@
       <h1>푸드트럭</h1>
       <h1>어디있을까?</h1>
     </div>
-
-    <div>
-      <search-input></search-input>
-    </div>
   </div>
 </template>
 
