@@ -21,3 +21,8 @@ run dev express server
 cd backend
 yarn dev
 ```
+
+test firebase url
+```
+https://foodtruck-223208.firebaseapp.com
+```
