@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router/index'
-import VueFire from 'vuefire'
-import InstantSearch from 'vue-instantsearch'
-import { store } from './store/index'
+import {
+  store
+} from './store/index'
 
 //firebase
 import firebase from 'firebase/app'
@@ -11,6 +11,9 @@ import '../config/firebaseInit'
 
 import axios from 'axios'
 import VModal from 'vue-js-modal'
+import VueFire from 'vuefire'
+import InstantSearch from 'vue-instantsearch'
+// import Ads from 'vue-google-adsense'
 
 Vue.prototype.$http = axios
 
@@ -18,6 +21,12 @@ Vue.config.productionTip = false
 
 Vue.use(InstantSearch)
 Vue.use(VueFire)
+
+// Vue.use(require('vue-script2'))
+
+// Vue.use(Ads.Adsense)
+// Vue.use(Ads.InArticleAdsense)
+// Vue.use(Ads.InFeedAdsense)
 
 Vue.use(VModal, {
   dynamic: true

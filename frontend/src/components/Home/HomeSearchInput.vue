@@ -2,32 +2,67 @@
   <div class="search-input">
     <div class="container-1">
       <span class="icon">
-        <font-awesome-icon :icon="icon" size="2x" />
+        <font-awesome-icon :icon="icon" size="2x"/>
       </span>
+      <ais-index :search-store="searchStore">
+        <ais-input :query="query"/>
+        <button type="submit" @click="send(searchStore.query)">검색</button>
+        <ais-results v-show="searchStore.query.length > 0">
+          <template slot-scope="{ result }">
+            <div>
+              <ais-highlight :result="result" attribute-name="local"></ais-highlight>
+            </div>
+          </template>
+        </ais-results>
+      </ais-index>
     </div>
   </div>
 </template>
 
 <script>
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { createFromAlgoliaCredentials } from "vue-instantsearch";
+
+const searchStore = createFromAlgoliaCredentials(
+  "GN5E22XFPN",
+  "2dd47b9aa13c9ebf4bb356688c7d91b8"
+);
+
+searchStore.indexName = "foodtruck_location";
+searchStore.page = 3;
+searchStore.resultsPerPage = 5;
 
 export default {
-  name: 'SearchInput',
+  name: "SearchInput",
+  props: {
+    query: {
+      type: String,
+      default: ""
+    }
+  },
+  data() {
+    return {
+      searchStore
+    };
+  },
   methods: {
-    RoutedSearch() {
-      router.push({})
+    send(value) {
+      this.$router.push({
+        name: "search",
+        params: { id: value }
+      });
     }
   },
   computed: {
     icon() {
-      return faSearch
+      return faSearch;
     }
   },
   components: {
     FontAwesomeIcon
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -80,11 +115,11 @@ export default {
   top: 25%;
 }
 
-button[type='reset'] {
+button[type="reset"] {
   visibility: hidden;
 }
 
-input[type='search'] {
+input[type="search"] {
   all: unset;
   font-weight: 600;
   width: 750px;
@@ -102,7 +137,7 @@ input[type='search'] {
   }
 }
 
-button[type='submit'] {
+button[type="submit"] {
   all: unset;
   text-align: center;
   position: absolute;
@@ -121,7 +156,7 @@ button[type='submit'] {
   cursor: pointer;
 }
 
-button[type='submit'] > svg {
+button[type="submit"] > svg {
   visibility: hidden;
 }
 
