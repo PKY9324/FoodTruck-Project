@@ -12,7 +12,8 @@ Vue.use(Router)
 
 export default new Router({
   mode: 'history',
-  routes: [{
+  routes: [
+    {
       name: 'home',
       path: '/',
       component: Home
@@ -26,9 +27,12 @@ export default new Router({
       })
     },
     {
-      name: 'search',
-      path: '/search/:id/:name',
-      component: SearchFocus
+      name: 'searchFocus',
+      path: '/search-focus/:name',
+      component: SearchFocus,
+      props: route => ({
+        params: route.params.name
+      })
     },
     {
       name: '404',
@@ -41,5 +45,5 @@ export default new Router({
       path: '/foodtrucklist',
       component: FoodtruckList
     }
-  ],
+  ]
 })

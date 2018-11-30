@@ -1,9 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router/index'
-import {
-  store
-} from './store/index'
+import { store } from './store/index'
 
 //firebase
 import firebase from 'firebase/app'
@@ -13,7 +11,7 @@ import axios from 'axios'
 import VModal from 'vue-js-modal'
 import VueFire from 'vuefire'
 import InstantSearch from 'vue-instantsearch'
-// import Ads from 'vue-google-adsense'
+import Toolbar from 'vue-js-toolbar'
 
 Vue.prototype.$http = axios
 
@@ -21,6 +19,7 @@ Vue.config.productionTip = false
 
 Vue.use(InstantSearch)
 Vue.use(VueFire)
+Vue.use(Toolbar)
 
 // Vue.use(require('vue-script2'))
 

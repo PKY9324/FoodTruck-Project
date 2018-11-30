@@ -1,20 +1,20 @@
 <template>
   <div>
-    <mini-search-bar/>
+    <search-tool-bar/>
     <foodtruck-list/>
-    <advertise/>
+    <!-- <advertise/> -->
   </div>
 </template>
 
 <script>
-import MiniSearchBar from "./MiniSearchBar";
 import FoodtruckList from "./FoodtruckList";
 import advertise from "./advertise";
+import SearchToolBar from "./SearchToolBar";
 
 export default {
   components: {
-    "mini-search-bar": MiniSearchBar,
     "foodtruck-list": FoodtruckList,
+    "search-tool-bar": SearchToolBar,
     advertise
   }
 };

@@ -1,0 +1,71 @@
+<template>
+  <!-- 로그인이 안되있는 상태 -->
+  <div v-if="!isAuth">
+    <modals-container/>
+    <button class="add-user-button" @click="modal_rendar()">
+      <span class="add-user-icon">
+        <font-awesome-icon :icon="icon" size="2x"/>
+      </span>
+    </button>
+  </div>
+  <div v-else-if="isAuth">
+    <logout-button/>
+  </div>
+</template>
+
+<script>
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
+
+import LoginModal from "../LoginModal/index";
+import LogoutButton from "./LogoutButton";
+
+import { mapState, mapMutations } from "vuex";
+
+export default {
+  name: "UsearLogin",
+  computed: {
+    ...mapState(["isAuth"]),
+    icon() {
+      return faUserPlus;
+    }
+  },
+  methods: {
+    modal_rendar() {
+      this.$modal.show(
+        LoginModal,
+        {
+          modal: this.$modal
+        },
+        {
+          width: "400px",
+          height: "450px"
+        }
+      );
+    },
+    ...mapMutations(["SET_AUTH"])
+  },
+  components: {
+    FontAwesomeIcon,
+    LoginModal,
+    "logout-button": LogoutButton
+  }
+};
+</script>
+
+<style>
+.add-user-button {
+  all: unset;
+  position: absolute;
+  margin-top: 10px;
+  margin-right: 20px;
+  right: 0px;
+  top: 0px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.add-user-icon {
+  color: white;
+}
+</style>

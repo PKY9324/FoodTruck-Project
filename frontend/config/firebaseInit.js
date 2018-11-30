@@ -5,3 +5,4 @@ import firebaseConfig from './fireabaseConfig'
 
 export const firebaseApp = firebase.initializeApp(firebaseConfig)
 export const db = firebaseApp.database()
+export const foodtruckRef = db.ref('foodtrucks')
