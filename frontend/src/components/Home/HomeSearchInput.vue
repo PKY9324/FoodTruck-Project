@@ -5,7 +5,7 @@
         <font-awesome-icon :icon="icon" size="2x"/>
       </span>
       <ais-index :search-store="searchStore">
-        <ais-input :query="query"/>
+        <ais-input :query="query" @keyup.enter.native="send(searchStore.query)"/>
         <button type="submit" @click="send(searchStore.query)">검색</button>
         <ais-results v-show="searchStore.query.length > 0">
           <template slot-scope="{ result }">

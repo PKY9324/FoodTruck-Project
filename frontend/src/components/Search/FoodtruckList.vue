@@ -1,18 +1,24 @@
 <template>
   <div>
     <div class="title">{{ this.$route.params.id }}</div>
-    <div class="container" v-for="list of lists" :key="list['.key']">
-      <div
-        class="image"
-        v-for="(image, imageIndex) in images"
-        :key="imageIndex"
-        :style="{ backgroundImage: 'url(' + image + ')', width: '350px', height: '300px' }"
-        @click="send(list.name, list['.key'])"
-      >
-        <div class="ftname">{{ list.name }}</div>
-        <span class="ftrank">별점</span>
-      </div>
-    </div>
+    <ais-index class="container" :search-store="searchStore">
+      <ais-results>
+        <template slot-scope="{ result }">
+          <div>
+            <div
+              class="image"
+              v-for="(image, imageIndex) in images"
+              :key="imageIndex"
+              :style="{ backgroundImage: 'url(' + image + ')', width: '350px', height: '300px' }"
+              @click="send(result.name, result['objectID'])"
+            >
+              <div class="ftname">{{ result.name }}</div>
+              <span class="ftrank">별점</span>
+            </div>
+          </div>
+        </template>
+      </ais-results>
+    </ais-index>
   </div>
 </template>
 
@@ -20,24 +26,46 @@
 import VueGallery from "vue-gallery";
 import { foodtruckRef } from "../../../config/firebaseInit.js";
 
+import {
+  createFromAlgoliaCredentials,
+  createFromSerialized
+} from "vue-instantsearch";
+
+const searchStore = createFromAlgoliaCredentials(
+  "GN5E22XFPN",
+  "2dd47b9aa13c9ebf4bb356688c7d91b8"
+);
+
+searchStore.indexName = "foodtruck";
+
 export default {
   firebase: {
     lists: foodtruckRef.orderByChild("name")
   },
   data: () => {
     return {
+      searchStore,
       images: [""],
-      index: null,
-      lists: []
+      index: null
     };
   },
+  created() {
+    searchStore.query = this.$route.params.id;
+  },
+  watch: {
+    $route: function(to, from) {
+      searchStore.query = this.$route.params.id;
+    }
+  },
   methods: {
-    send(name, key) {
+    send(name, objectID) {
       this.$router.push({
         name: "searchFocus",
-        params: { name: name, key: key }
+        params: {
+          name: name,
+          objectID: objectID
+        }
       });
-      // console.log(key);
     }
   },
   components: {

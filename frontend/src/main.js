@@ -37,9 +37,7 @@ new Vue({
   created() {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        //this.$router.push('/search')
-      } else {
-        //this.$router.push('/')
+        this.$store.dispatch('autoSignIn', user)
       }
     })
   },

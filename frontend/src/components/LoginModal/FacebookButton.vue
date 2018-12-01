@@ -1,36 +1,34 @@
 <template>
-    <button class="facebook" @click.prevent="onSigninFacebook">
-        <span>
-            <font-awesome-icon :icon="facebookIcon" size="2x" />
-        </span>
-        <span>
-            페이스북으로 로그인
-        </span>
-        <span></span>
-    </button>
+  <button class="facebook" @click.prevent="onSigninFacebook">
+    <span>
+      <font-awesome-icon :icon="facebookIcon" size="2x"/>
+    </span>
+    <span>페이스북으로 로그인</span>
+    <span></span>
+  </button>
 </template>
 
 <script>
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faFacebook } from '@fortawesome/free-brands-svg-icons'
-import firebase from 'firebase/app'
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { faFacebook } from "@fortawesome/free-brands-svg-icons";
+import firebase from "firebase/app";
 
 export default {
-  name: 'FacebookButton',
+  name: "FacebookButton",
   methods: {
     onSigninFacebook() {
-      this.$store.dispatch('signUserInFacebook')
+      this.$store.dispatch("signUserInFacebook");
     }
   },
   computed: {
     facebookIcon() {
-      return faFacebook
+      return faFacebook;
     }
   },
   components: {
     FontAwesomeIcon
   }
-}
+};
 </script>
 
 <style>

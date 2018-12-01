@@ -4,6 +4,7 @@ import Home from '@/components/Home/index'
 import Search from '@/components/Search/index'
 import SearchFocus from '@/components/SearchFocus/index'
 import LoginModal from '@/components/LoginModal/index'
+import WriteReview from '@/components/WriteReview/index'
 import PageNotFound from '@/components/PageNotFound/index'
 
 import FoodtruckList from '@/components/Search/FoodtruckList'
@@ -28,11 +29,20 @@ export default new Router({
     },
     {
       name: 'searchFocus',
-      path: '/search-focus/:key/:name',
+      path: '/search/:objectID/:name',
       component: SearchFocus,
       props: route => ({
         params: route.params.name,
-        params: route.params.key
+        params: route.params.objectID
+      })
+    },
+    {
+      name: 'writeReview',
+      path: '/search/:objectID/:name/write',
+      component: WriteReview,
+      props: route => ({
+        params: route.params.name,
+        params: route.params.objectID
       })
     },
     {

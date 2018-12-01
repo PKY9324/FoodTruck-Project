@@ -1,15 +1,18 @@
 <template>
-  <!-- 로그인이 안되있는 상태 -->
-  <div v-if="!isAuth">
-    <modals-container/>
-    <button class="add-user-button" @click="modal_rendar()">
-      <span class="add-user-icon">
-        <font-awesome-icon :icon="icon" size="2x"/>
-      </span>
-    </button>
-  </div>
-  <div v-else-if="isAuth">
-    <logout-button/>
+  <div>
+    <!-- 로그인이 안되있는 상태 -->
+    <div v-if="!user">
+      <modals-container/>
+      <button class="add-user-button" @click="modal_rendar()">
+        <span class="add-user-icon">
+          <font-awesome-icon :icon="icon" size="2x"/>
+        </span>
+      </button>
+    </div>
+
+    <div v-if="user">
+      <logout-button/>
+    </div>
   </div>
 </template>
 
@@ -25,7 +28,9 @@ import { mapState, mapMutations } from "vuex";
 export default {
   name: "UsearLogin",
   computed: {
-    ...mapState(["isAuth"]),
+    ...mapState({
+      user: state => state.user.isAuth
+    }),
     icon() {
       return faUserPlus;
     }
@@ -42,8 +47,7 @@ export default {
           height: "450px"
         }
       );
-    },
-    ...mapMutations(["SET_AUTH"])
+    }
   },
   components: {
     FontAwesomeIcon,

@@ -1,8 +1,6 @@
 <template>
   <div>
-    <button class="logout-button" @click.prevent="onLogout">
-        로그아웃
-    </button>
+    <button class="logout-button" @click.prevent="onLogout">로그아웃</button>
   </div>
 </template>
 
@@ -10,10 +8,10 @@
 export default {
   methods: {
     onLogout() {
-      this.$store.dispatch('logout')
+      this.$store.dispatch("logout");
     }
   }
-}
+};
 </script>
 
 <style>

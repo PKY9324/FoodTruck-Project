@@ -1,6 +1,6 @@
 <template>
   <ais-index :search-store="searchStore">
-    <ais-input v-bind:value="this.$route.params.id"></ais-input>
+    <ais-input :value="this.$route.params.id" @keyup.enter.native="send(searchStore.query)"></ais-input>
     <button type="submit" @click="send(searchStore.query)">검색</button>
     <ais-results v-show="searchStore.query.length > 0" value="this.$route.params.id">
       <template slot-scope="{ result }">
@@ -38,7 +38,6 @@ export default {
         name: "search",
         params: { id: value }
       });
-      // .then(searchStore.refresh());
     }
   }
 };
