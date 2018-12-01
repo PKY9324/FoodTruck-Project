@@ -1,7 +1,7 @@
 <template>
   <div>
     <toolbar :value="true" :height="50" :color="'#3498DB'">
-      <span class="title">Foodtrucks</span>
+      <span class="title">FoodTrucks</span>
     </toolbar>
   </div>
 </template>
