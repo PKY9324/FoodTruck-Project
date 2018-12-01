@@ -28,10 +28,11 @@ export default new Router({
     },
     {
       name: 'searchFocus',
-      path: '/search-focus/:name',
+      path: '/search-focus/:key/:name',
       component: SearchFocus,
       props: route => ({
-        params: route.params.name
+        params: route.params.name,
+        params: route.params.key
       })
     },
     {

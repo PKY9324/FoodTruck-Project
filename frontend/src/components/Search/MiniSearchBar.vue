@@ -1,27 +1,11 @@
 <template>
   <ais-index :search-store="searchStore">
     <ais-input v-bind:value="this.$route.params.id"></ais-input>
-    <button
-      type="submit"
-      @keypress.enter="send(searchStore.query)"
-      @click="send(searchStore.query)"
-    >검색</button>
+    <button type="submit" @click="send(searchStore.query)">검색</button>
     <ais-results v-show="searchStore.query.length > 0" value="this.$route.params.id">
       <template slot-scope="{ result }">
         <div>
           <ais-highlight :result="result" attribute-name="local"></ais-highlight>
-          <br>
-          <!-- <ais-highlight
-            :result="result"
-            v-if="result.old_address != 'undefined'"
-            attribute-name="old_address"
-          ></ais-highlight>
-          <br>-->
-          <!-- <ais-highlight
-            :result="result"
-            v-if="result.new_address != 'undefined'"
-            attribute-name="new_address"
-          ></ais-highlight>-->
           <hr>
         </div>
       </template>

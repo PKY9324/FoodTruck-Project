@@ -2,17 +2,16 @@
   <div>
     <div class="title">{{ this.$route.params.id }}</div>
     <div class="container" v-for="list of lists" :key="list['.key']">
-      <a :href="'/search-focus/' + list.name">
-        <div
-          class="image"
-          v-for="(image, imageIndex) in images"
-          :key="imageIndex"
-          :style="{ backgroundImage: 'url(' + image + ')', width: '350px', height: '300px' }"
-        >
-          <div class="ftname">{{ list.name }}</div>
-          <span class="ftrank">별점</span>
-        </div>
-      </a>
+      <div
+        class="image"
+        v-for="(image, imageIndex) in images"
+        :key="imageIndex"
+        :style="{ backgroundImage: 'url(' + image + ')', width: '350px', height: '300px' }"
+        @click="send(list.name, list['.key'])"
+      >
+        <div class="ftname">{{ list.name }}</div>
+        <span class="ftrank">별점</span>
+      </div>
     </div>
   </div>
 </template>
@@ -31,6 +30,15 @@ export default {
       index: null,
       lists: []
     };
+  },
+  methods: {
+    send(name, key) {
+      this.$router.push({
+        name: "searchFocus",
+        params: { name: name, key: key }
+      });
+      // console.log(key);
+    }
   },
   components: {
     gallery: VueGallery
