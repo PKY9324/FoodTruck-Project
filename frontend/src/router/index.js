@@ -9,6 +9,8 @@ import PageNotFound from '@/components/PageNotFound/index'
 
 import FoodtruckList from '@/components/Search/FoodtruckList'
 
+import { store } from '../store/index'
+
 Vue.use(Router)
 
 export default new Router({
@@ -40,6 +42,7 @@ export default new Router({
       name: 'writeReview',
       path: '/search/:objectID/:name/write',
       component: WriteReview,
+      beforeEnter: redirectIfNotAuth,
       props: route => ({
         params: route.params.name,
         params: route.params.objectID
@@ -58,3 +61,29 @@ export default new Router({
     }
   ]
 })
+
+async function redirectIfNotAuth(to, from, next) {
+  const user = await getUserState()
+  if (user === null) {
+    next('/')
+  } else {
+    next()
+  }
+}
+
+function getUserState() {
+  return new Promise((resolve, reject) => {
+    if (store.getters.user === null || store.getters.user === undefined) {
+      const unwatch = store.watch(
+        () => store.getters.user,
+        value => {
+          unwatch()
+          resolve(value)
+        }
+      )
+      alert('로그인 후 작성해주세요')
+    } else {
+      resolve(store.getters.user)
+    }
+  })
+}

@@ -10,5 +10,6 @@ export const store = new Vuex.Store({
   modules: {
     user: user,
     shared: shared
-  }
+  },
+  plugin: ['createPersistedState']
 })

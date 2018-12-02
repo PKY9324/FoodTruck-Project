@@ -58,7 +58,7 @@ export default {
   height: 20px;
   border-radius: 5px;
   outline: none;
-  color: #9dbfaf;
+  color: white;
 }
 
 button[type="submit"] {

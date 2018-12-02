@@ -1,34 +1,39 @@
 <template>
-  <div>
+  <div class="container__write">
     <tool-bar/>
     <div>
+      <Title/>
       <div>
-        {{ this.$route.params.name }}
-        <br>에 대한 솔직한 리뷰를 써주세요.
+        <div>1점</div>
+        <div>2점</div>
+        <div>3점</div>
+        <div>4점</div>
+        <div>5점</div>
+
+        <div>취소</div>
+        <div>저장</div>
       </div>
-      <div>1점</div>
-      <div>2점</div>
-      <div>3점</div>
-      <div>4점</div>
-      <div>5점</div>
-      <div>photoUrl</div>
-      <div>textarea</div>
-      <div>imageUpload</div>
-      <div>취소</div>
-      <div>저장</div>
+      <Photo/>
     </div>
   </div>
 </template>
 
 <script>
 import ToolBar from "./ToolBar";
+import Title from "./Title";
+import Photo from "./Photo";
 
 export default {
   components: {
-    "tool-bar": ToolBar
+    "tool-bar": ToolBar,
+    Title,
+    Photo
   }
 };
 </script>
 
-<style>
+<style scoped>
+.container__write {
+  margin-top: 60px;
+}
 </style>

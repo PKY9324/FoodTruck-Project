@@ -70,6 +70,7 @@ export default {
         email: payload.email,
         photoUrl: payload.photoURL
       })
+      commit('LOGIN_SUCCESS')
     },
     logout({ commit }) {
       firebase.auth().signOut()
