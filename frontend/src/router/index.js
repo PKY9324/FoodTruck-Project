@@ -9,14 +9,15 @@ import PageNotFound from '@/components/PageNotFound/index'
 
 import FoodtruckList from '@/components/Search/FoodtruckList'
 
-import { store } from '../store/index'
+import {
+  store
+} from '../store/index'
 
 Vue.use(Router)
 
 export default new Router({
   mode: 'history',
-  routes: [
-    {
+  routes: [{
       name: 'home',
       path: '/',
       component: Home
@@ -81,7 +82,9 @@ function getUserState() {
           resolve(value)
         }
       )
-      alert('로그인 후 작성해주세요')
+      if (store.getters.user === null || store.getters.user === undefined) {
+        alert('로그인 후 작성해주세요')
+      }
     } else {
       resolve(store.getters.user)
     }
