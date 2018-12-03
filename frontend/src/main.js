@@ -1,25 +1,27 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router/index'
-import { store } from './store/index'
+import Vue from "vue";
+import App from "./App.vue";
+import router from "./router/index";
+import { store } from "./store/index";
 
 //firebase
-import firebase from 'firebase/app'
-import '../config/firebaseInit'
+import firebase from "firebase/app";
+import "../config/firebaseInit";
 
-import axios from 'axios'
-import VModal from 'vue-js-modal'
-import VueFire from 'vuefire'
-import InstantSearch from 'vue-instantsearch'
-import Toolbar from 'vue-js-toolbar'
+import axios from "axios";
+import VModal from "vue-js-modal";
+import VueFire from "vuefire";
+import InstantSearch from "vue-instantsearch";
+import Toolbar from "vue-js-toolbar";
+import VueTruncate from "vue-truncate-filter";
 
-Vue.prototype.$http = axios
+Vue.prototype.$http = axios;
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
-Vue.use(InstantSearch)
-Vue.use(VueFire)
-Vue.use(Toolbar)
+Vue.use(InstantSearch);
+Vue.use(VueFire);
+Vue.use(Toolbar);
+Vue.use(VueTruncate);
 
 // Vue.use(require('vue-script2'))
 
@@ -29,7 +31,7 @@ Vue.use(Toolbar)
 
 Vue.use(VModal, {
   dynamic: true
-})
+});
 
 new Vue({
   router,
@@ -37,9 +39,9 @@ new Vue({
   created() {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        this.$store.dispatch('autoSignIn', user)
+        this.$store.dispatch("autoSignIn", user);
       }
-    })
+    });
   },
   render: h => h(App)
-}).$mount('#app')
+}).$mount("#app");

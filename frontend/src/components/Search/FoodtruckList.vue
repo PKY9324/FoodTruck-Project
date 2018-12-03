@@ -1,24 +1,25 @@
 <template>
   <div>
-    <div class="title">{{ this.$route.params.id }}</div>
-    <ais-index class="container" :search-store="searchStore">
-      <ais-results>
-        <template slot-scope="{ result }">
-          <div>
-            <div
-              class="image"
-              v-for="(image, imageIndex) in images"
-              :key="imageIndex"
-              :style="{ backgroundImage: 'url(' + image + ')', width: '350px', height: '300px' }"
-              @click="send(result.name, result['objectID'])"
-            >
-              <div class="ftname">{{ result.name }}</div>
-              <span class="ftrank">별점</span>
+    <div class="list__title">{{ this.$route.params.id }}</div>
+    <div>
+      <ais-index class="container" :search-store="searchStore">
+        <ais-results>
+          <template slot-scope="{ result }">
+            <div>
+              <div
+                class="image"
+                v-for="(image, imageIndex) in images"
+                :key="imageIndex"
+                :style="{ backgroundImage: 'url(' + image + ')', width: '350px', height: '300px' }"
+                @click="send(result.name, result['objectID'])"
+              >
+                <div class="ftname">{{ result.name | truncate(11) }}</div>
+              </div>
             </div>
-          </div>
-        </template>
-      </ais-results>
-    </ais-index>
+          </template>
+        </ais-results>
+      </ais-index>
+    </div>
   </div>
 </template>
 
@@ -37,6 +38,7 @@ const searchStore = createFromAlgoliaCredentials(
 );
 
 searchStore.indexName = "foodtruck";
+searchStore.resultsPerPage = 1000;
 
 export default {
   firebase: {
@@ -79,12 +81,14 @@ a {
   all: unset;
 }
 
-.title {
-  position: relative;
-  top: 5rem;
-  left: 2rem;
+.list__title {
+  all: unset;
+  position: absolute;
+  top: 70px;
+  left: 20px;
   font-size: 40px;
   font-weight: 600;
+  color: black;
 }
 
 .image {
@@ -100,7 +104,7 @@ a {
 }
 
 .container {
-  margin-top: 90px;
+  margin-top: 130px;
   margin-left: 4rem;
 }
 

@@ -1,12 +1,20 @@
 <template>
-  <div class="container__write">
+  <div>
     <tool-bar/>
-    <Title/>
-    <score/>
-    <Photo/>
-    <write-review/>
-    <image-upload/>
-    <Save/>
+    <div class="container__write__sub">
+      <div class="container__write__top">
+        <Title/>
+        <score/>
+      </div>
+      <div class="container__write__middle">
+        <Photo/>
+        <write-review/>
+      </div>
+      <div class="container__write__bottom">
+        <image-upload/>
+      </div>
+      <Save/>
+    </div>
   </div>
 </template>
 
@@ -33,7 +41,16 @@ export default {
 </script>
 
 <style scoped>
-.container__write {
-  margin-top: 60px;
+* {
+  all: unset;
+}
+
+.container__write__sub {
+}
+
+.container__write__top {
+}
+
+.container__write__middle {
 }
 </style>

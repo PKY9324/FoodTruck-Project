@@ -10793,6 +10793,11 @@ vue-template-es2015-compiler@^1.6.0:
   resolved "http://registry.npm.taobao.org/vue-template-es2015-compiler/download/vue-template-es2015-compiler-1.6.0.tgz#dc42697133302ce3017524356a6c61b7b69b4a18"
   integrity sha1-3EJpcTMwLOMBdSQ1amxht7abShg=
 
+vue-truncate-filter@^1.1.7:
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/vue-truncate-filter/-/vue-truncate-filter-1.1.7.tgz#e365fd2d4520c017293308e0ecbb1dd6176c3af2"
+  integrity sha512-kFmUDsDFIj5vArdK6hX84v80fTWJIMrsYF5keCluy9hMiaKGL8NyApnMbWavZeDod24YeYMVQ9jjd7MkRn3AAg==
+
 vue@^2.5.13, vue@^2.5.17:
   version "2.5.17"
   resolved "http://registry.npm.taobao.org/vue/download/vue-2.5.17.tgz#0f8789ad718be68ca1872629832ed533589c6ada"

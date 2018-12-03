@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrap">
     <div class="name">{{ this.$route.params.name }}</div>
     <div class="sub">에 대한 솔직한 리뷰를 써주세요.</div>
   </div>
@@ -10,6 +10,9 @@ export default {};
 </script>
 
 <style>
+.wrap {
+}
+
 .name {
   font-size: 26px;
   font-weight: 600;

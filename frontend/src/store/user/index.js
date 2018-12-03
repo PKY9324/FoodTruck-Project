@@ -3,7 +3,9 @@ import * as firebase from 'firebase'
 export default {
   state: {
     user: null,
-    isAuth: false
+    isAuth: false,
+    review: '',
+    star: ''
   },
   mutations: {
     setUser(state, payload) {
@@ -14,10 +16,18 @@ export default {
     },
     LOGOUT_SUCCESS(state) {
       state.isAuth = false
+    },
+    UPDATE_FORM(state, form) {
+      state.review = form
+    },
+    UPDATE_STAR(state, star) {
+      state.star = star
     }
   },
   actions: {
-    signUserInGoogle({ commit }) {
+    signUserInGoogle({
+      commit
+    }) {
       commit('setLoading', true)
       commit('clearError')
       firebase
@@ -40,7 +50,9 @@ export default {
           console.log(error)
         })
     },
-    signUserInFacebook({ commit }) {
+    signUserInFacebook({
+      commit
+    }) {
       commit('setLoading', true)
       commit('clearError')
       firebase
@@ -63,7 +75,9 @@ export default {
           console.log(error)
         })
     },
-    autoSignIn({ commit }, payload) {
+    autoSignIn({
+      commit
+    }, payload) {
       commit('setUser', {
         id: payload.uid,
         name: payload.displayName,
@@ -72,15 +86,40 @@ export default {
       })
       commit('LOGIN_SUCCESS')
     },
-    logout({ commit }) {
+    logout({
+      commit
+    }) {
       firebase.auth().signOut()
       commit('setUser', null)
       commit('LOGOUT_SUCCESS')
+    },
+    SubmitSaveButton({
+      commit
+    }, {
+      star,
+      review,
+      user
+    }) {
+      console.log(star, review, user)
+      if (star !== "" && review !== "") {
+        firebase.database().ref('description/' + user.id).set({
+          user_id: user.id,
+          photoUrl: user.photoUrl,
+          name: user.name,
+          desp: review
+        })
+      }
     }
   },
   getters: {
     user(state) {
       return state.user
+    },
+    review(state) {
+      return state.review
+    },
+    star(state) {
+      return state.star
     }
   }
 }

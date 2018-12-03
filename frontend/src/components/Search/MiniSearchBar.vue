@@ -4,9 +4,8 @@
     <button type="submit" @click="send(searchStore.query)">검색</button>
     <ais-results v-show="searchStore.query.length > 0" value="this.$route.params.id">
       <template slot-scope="{ result }">
-        <div>
+        <div class="inner-result" @click="send(result.local)">
           <ais-highlight :result="result" attribute-name="local"></ais-highlight>
-          <hr>
         </div>
       </template>
     </ais-results>
@@ -34,6 +33,7 @@ export default {
   },
   methods: {
     send(value) {
+      searchStore.query = "";
       this.$router.push({
         name: "search",
         params: { id: value }
@@ -78,6 +78,14 @@ button[type="submit"] {
 
 .ais-results {
   position: absolute;
-  top: 3rem;
+  top: 40px;
+  width: 190px;
+  cursor: pointer;
+}
+
+.inner-result {
+  background-color: white;
+  color: black;
+  font-weight: 600;
 }
 </style>

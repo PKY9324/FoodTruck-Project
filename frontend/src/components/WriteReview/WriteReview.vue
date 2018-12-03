@@ -1,9 +1,22 @@
 <template>
-  <textarea/>
+  <div class="container__textarea">
+    <textarea @input="updateMessage"/>
+    {{ review }}
+  </div>
 </template>
 
 <script>
-export default {};
+import { mapGetters } from "vuex";
+export default {
+  computed: {
+    ...mapGetters(["review"])
+  },
+  methods: {
+    updateMessage(e) {
+      this.$store.commit("UPDATE_FORM", e.target.value);
+    }
+  }
+};
 </script>
 
 <style>
@@ -19,5 +32,8 @@ textarea {
   font-size: 16px;
   color: #000000;
   resize: none;
+}
+
+.container__textarea {
 }
 </style>

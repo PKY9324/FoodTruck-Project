@@ -9,7 +9,7 @@
         <button type="submit" @click="send(searchStore.query)">검색</button>
         <ais-results v-show="searchStore.query.length > 0">
           <template slot-scope="{ result }">
-            <div>
+            <div class="inner-result" @click="send(result.local)">
               <ais-highlight :result="result" attribute-name="local"></ais-highlight>
             </div>
           </template>
@@ -112,7 +112,21 @@ export default {
 .container-1 > .icon {
   position: absolute;
   left: 10px;
-  top: 25%;
+  top: 15px;
+}
+
+.ais-results {
+  position: absolute;
+  left: 30px;
+  width: 728px;
+  cursor: pointer;
+}
+
+.inner-result {
+  background-color: white;
+  color: black;
+  font-weight: 600;
+  height: 25px;
 }
 
 button[type="reset"] {
@@ -143,6 +157,7 @@ button[type="submit"] {
   position: absolute;
   background-color: rgb(52, 152, 219);
   border: none;
+  top: 0;
   right: 0;
   bottom: 0;
   width: 170px;

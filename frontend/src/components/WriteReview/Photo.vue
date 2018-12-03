@@ -4,7 +4,7 @@
       class="image__write__photo"
       :style="`background-image: url('${user.photoUrl}?width=100&height=100')`"
     ></div>
-    <div>{{ user.name }}</div>
+    <div class="photo__user__name">{{ user.name }}</div>
   </div>
 </template>
 
@@ -35,6 +35,8 @@ export default {
 }
 
 .container__photo {
-  display: inline-block;
+}
+
+.photo__user__name {
 }
 </style>
