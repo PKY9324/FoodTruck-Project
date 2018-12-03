@@ -7,7 +7,6 @@ vue cli 3
 module install
 ```
 cd frontend && yarn install
-cd backend && yarn install
 ```
 
 run dev vue server 
