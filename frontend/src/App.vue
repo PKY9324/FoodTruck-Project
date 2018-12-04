@@ -20,5 +20,6 @@ html {
   all: unset;
   overflow: hidden;
   height: 100%;
+  background-color: #f1f3f5;
 }
 </style>

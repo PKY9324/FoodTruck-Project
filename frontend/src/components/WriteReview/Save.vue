@@ -54,12 +54,12 @@ export default {
   position: relative;
   min-width: 140px;
   min-height: 50px;
-  border: 1px solid #ff7100;
+  border: 1px solid #3498db;
   border-radius: 50px;
   font-size: 16px;
   color: #ffffff;
   text-align: center;
-  background-color: #ff7100;
+  background-color: #3498db;
   cursor: pointer;
 }
 </style>

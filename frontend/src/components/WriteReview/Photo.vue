@@ -28,15 +28,22 @@ export default {
 </script>
 
 <style>
+.container__photo {
+  display: inline-block;
+  vertical-align: top;
+  padding: 10px;
+}
+
 .image__write__photo {
   width: 100px;
   height: 100px;
+
   border-radius: 50%;
 }
 
-.container__photo {
-}
-
 .photo__user__name {
+  margin-top: 10px;
+  text-align: center;
+  font-weight: 500;
 }
 </style>

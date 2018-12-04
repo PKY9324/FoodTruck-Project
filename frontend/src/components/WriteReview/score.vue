@@ -1,27 +1,35 @@
 <template>
   <div class="container__score">
+    <span>
+      <img
+        src="../../assets/one.png"
+        class="click__score__not_clicked"
+        @click="clickScoreOne"
+        :class="{ click__score__clicked: isActiveOne }"
+      >
+    </span>
+    
     <img
-      class="click__score__one"
-      @click="clickScoreOne"
-      :class="{ click__score__clicked: isActiveOne }"
-    >
-    <img
-      class="click__score__two"
+      src="../../assets/two.png"
+      class="click__score__not_clicked"
       @click="clickScoreTwo"
       :class="{ click__score__clicked: isActiveTwo }"
     >
     <img
-      class="click__score__three"
+      src="../../assets/three.png"
+      class="click__score__not_clicked"
       @click="clickScoreThree"
       :class="{ click__score__clicked: isActiveThree }"
     >
     <img
-      class="click__score__four"
+      src="../../assets/four.png"
+      class="click__score__not_clicked"
       @click="clickScoreFour"
       :class="{ click__score__clicked: isActiveFour }"
     >
     <img
-      class="click__score__five"
+      src="../../assets/five.png"
+      class="click__score__not_clicked"
       @click="clickScoreFive"
       :class="{ click__score__clicked: isActiveFive }"
     >
@@ -88,47 +96,13 @@ export default {
 
 <style>
 .container__score {
+  text-align: center;
+  margin-left: 430px;
+  padding: 20px;
 }
 
-.click__score__one {
+.click__score__not_clicked {
   all: unset;
-  background-image: url("../../assets/one.png");
-  background-size: cover;
-  width: 80px;
-  height: 80px;
-  cursor: pointer;
-}
-
-.click__score__two {
-  all: unset;
-  background-image: url("../../assets/two.png");
-  background-size: cover;
-  width: 80px;
-  height: 80px;
-  cursor: pointer;
-}
-
-.click__score__three {
-  all: unset;
-  background-image: url("../../assets/three.png");
-  background-size: cover;
-  width: 80px;
-  height: 80px;
-  cursor: pointer;
-}
-
-.click__score__four {
-  all: unset;
-  background-image: url("../../assets/four.png");
-  background-size: cover;
-  width: 80px;
-  height: 80px;
-  cursor: pointer;
-}
-
-.click__score__five {
-  all: unset;
-  background-image: url("../../assets/five.png");
   background-size: cover;
   width: 80px;
   height: 80px;
@@ -136,6 +110,6 @@ export default {
 }
 
 .click__score__clicked {
-  border: 2px solid #3498db;
+  box-shadow: 0 0 0 2px #3498db inset;
 }
 </style>

@@ -1,19 +1,21 @@
 <template>
-  <div>
+  <div class="container__write__main">
     <tool-bar/>
     <div class="container__write__sub">
       <div class="container__write__top">
         <Title/>
-        <score/>
       </div>
+      <score/>
       <div class="container__write__middle">
         <Photo/>
         <write-review/>
       </div>
-      <div class="container__write__bottom">
+      <div class="container__write__image__upload">
         <image-upload/>
       </div>
-      <Save/>
+      <div class="container__write__bottom">
+        <Save/>
+      </div>
     </div>
   </div>
 </template>
@@ -40,17 +42,32 @@ export default {
 };
 </script>
 
-<style scoped>
-* {
-  all: unset;
+<style>
+.container__write__main {
+  margin: 0 auto;
 }
 
 .container__write__sub {
 }
 
 .container__write__top {
+  padding: 20px;
+  margin-left: 20px;
+  margin-top: 80px;
+  text-align: center;
 }
 
 .container__write__middle {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.container__write__image__upload {
+  text-align: center;
+}
+
+.container__write__bottom {
+  text-align: center;
 }
 </style>

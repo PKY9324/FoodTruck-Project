@@ -11,6 +11,9 @@ export default {};
 
 <style>
 .wrap {
+  display: inline-block;
+  padding: 20px;
+  margin-right: 400px;
 }
 
 .name {
@@ -21,5 +24,6 @@ export default {};
 
 .sub {
   font-size: 20px;
+  text-align: left;
 }
 </style>
