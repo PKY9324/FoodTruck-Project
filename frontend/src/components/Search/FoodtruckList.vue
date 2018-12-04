@@ -13,6 +13,7 @@
                 :style="{ backgroundImage: 'url(' + image + ')', width: '350px', height: '300px' }"
                 @click="send(result.name, result['objectID'])"
               >
+                <div class="not__found__image" v-if="image === '' ">이미지가 없습니다</div>
                 <div class="ftname">{{ result.name | truncate(11) }}</div>
               </div>
             </div>
@@ -81,6 +82,14 @@ a {
   all: unset;
 }
 
+.not__found__image {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: gray;
+}
+
 .list__title {
   all: unset;
   position: absolute;
@@ -94,11 +103,11 @@ a {
 .image {
   position: relative;
   float: left;
-  background-color: rgb(182, 182, 182);
+  background-color: white;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  border: 1px solid #ebebeb;
+  border: 1px solid black;
   margin: 25px;
   cursor: pointer;
 }

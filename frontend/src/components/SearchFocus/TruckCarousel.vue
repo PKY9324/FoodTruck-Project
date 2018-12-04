@@ -1,14 +1,7 @@
 <template>
   <div id="carousel-container">
-    <carousel :navigationEnabled="true" :perPageCustom="[[768, 2], [1024, 4]]">
-      <slide>Image 1</slide>
-      <slide>Image 2</slide>
-      <slide>Image 3</slide>
-      <slide>Image 4</slide>
-      <slide>Image 5</slide>
-      <slide>Image 6</slide>
-      <slide>Image 7</slide>
-      <slide>Image 8</slide>
+    <carousel :perPageCustom="[[768, 2], [1024, 4]]">
+      <slide></slide>
     </carousel>
   </div>
 </template>
@@ -25,7 +18,6 @@ export default {
 
 <style>
 #carousel-container {
-  padding: 30px;
 }
 
 .VueCarousel {
@@ -34,7 +26,8 @@ export default {
 
 .VueCarousel-slide {
   position: relative;
-  background: gray;
+  background: white;
+  border: 1px solid gray;
   color: #fff;
   font-family: Arial;
   font-size: 24px;

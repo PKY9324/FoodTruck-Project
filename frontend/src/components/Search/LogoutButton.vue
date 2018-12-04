@@ -22,8 +22,10 @@ export default {
   padding-bottom: 10px;
   padding-right: 10px;
   padding-left: 10px;
-  right: 70px;
+  right: 3%;
   top: 0px;
+  color: white;
+  font-weight: 600;
   z-index: 1;
   cursor: pointer;
 }

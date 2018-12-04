@@ -1,7 +1,7 @@
 <template>
   <div class="container__textarea">
-    <textarea @input="updateMessage"/>
-    {{ review }}
+    <textarea @input="updateMessage" @keyup.enter="updateEnter" minlength="10" wrap="hard"/>
+    <!-- {{ review }} -->
   </div>
 </template>
 
@@ -14,8 +14,16 @@ export default {
   methods: {
     updateMessage(e) {
       this.$store.commit("UPDATE_FORM", e.target.value);
+    },
+    updateEnter(e) {
+      this.$store.commit("UPDATE_FORM", "\n");
     }
   }
+  // watch: {
+  //   review(val) {
+  //     console.log(val);
+  //   }
+  // }
 };
 </script>
 
@@ -32,6 +40,7 @@ textarea {
   font-size: 16px;
   color: #000000;
   resize: none;
+  overflow-wrap: break-word;
 }
 
 .container__textarea {

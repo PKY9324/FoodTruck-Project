@@ -52,8 +52,9 @@ export default {
 .ais-input {
   all: unset;
   float: left;
-  width: 100%;
-  border: 3px solid #00b4cc;
+  width: 70%;
+  border: 3px solid white;
+  margin-left: 150px;
   padding: 5px;
   height: 20px;
   border-radius: 5px;
@@ -64,13 +65,14 @@ export default {
 button[type="submit"] {
   all: unset;
   position: absolute;
-  right: -50px;
-  width: 40px;
-  height: 36px;
-  border: 1px solid #00b4cc;
-  background: #00b4cc;
+  right: -100px;
+  width: 60px;
+  height: 35px;
+  border: 1px solid white;
+  background: white;
   text-align: center;
-  color: #fff;
+  font-weight: 600;
+  color: black;
   border-radius: 5px;
   cursor: pointer;
   font-size: 20px;
@@ -78,8 +80,9 @@ button[type="submit"] {
 
 .ais-results {
   position: absolute;
-  top: 40px;
-  width: 190px;
+  top: 35px;
+  left: 150px;
+  width: 220px;
   cursor: pointer;
 }
 

@@ -1,10 +1,7 @@
 <template>
   <div class="container__save__button">
-    <button class="save__button">취소</button>
+    <button class="save__button" @click="cancle">취소</button>
     <button class="cancle__button" @click="save">저장</button>
-    {{ star }}
-    {{ review }}
-    {{ user }}
   </div>
 </template>
 
@@ -20,9 +17,15 @@ export default {
       const payload = {
         star: this.star,
         review: this.review,
-        user: this.user
+        user: this.user,
+        objectID: this.$route.params.objectID
       };
       this.$store.dispatch("SubmitSaveButton", payload);
+      this.$router.go(-1);
+    },
+    cancle(e) {
+      this.$store.dispatch("CancleButton");
+      this.$router.go(-1);
     }
   }
 };

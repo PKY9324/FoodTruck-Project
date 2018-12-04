@@ -8,6 +8,10 @@ export default {
     star: ''
   },
   mutations: {
+    STATE_INIT(state) {
+      state.review = ''
+      state.star = ''
+    },
     setUser(state, payload) {
       state.user = payload
     },
@@ -98,17 +102,26 @@ export default {
     }, {
       star,
       review,
-      user
+      user,
+      objectID
     }) {
-      console.log(star, review, user)
-      if (star !== "" && review !== "") {
-        firebase.database().ref('description/' + user.id).set({
+      console.log(star, review, user, objectID)
+      if (star === "" || review === "") {
+        alert('리뷰와 별점을 매겨주세요')
+      } else {
+        firebase.database().ref('foodtrucks/' + objectID).child('description').push().set({
           user_id: user.id,
           photoUrl: user.photoUrl,
           name: user.name,
+          star: star,
           desp: review
         })
       }
+    },
+    CancleButton({
+      commit
+    }) {
+      commit('STATE_INIT');
     }
   },
   getters: {
