@@ -32,9 +32,6 @@ export default {
 </script>
 
 <style>
-.container__save__button {
-}
-
 .save__button {
   all: unset;
   min-width: 140px;

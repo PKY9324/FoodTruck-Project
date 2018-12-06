@@ -95,9 +95,132 @@ export default {
 </script>
 
 <style>
-.container__score {
-  text-align: center;
-  margin-left: 430px;
+@media screen and (max-width: 360px) {
+  .container__score {
+    text-align: left;
+    width: 400px;
+  }
+
+  .click__score__not_clicked {
+    all: unset;
+    background-size: cover;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+  }
+
+  .click__score__clicked {
+    box-shadow: 0 0 0 2px #3498db inset;
+  }
+}
+
+@media screen and (min-width: 361px) and (max-width: 375px) {
+  .container__score {
+    text-align: left;
+    width: 400px;
+    padding: 10px;
+  }
+
+  .click__score__not_clicked {
+    all: unset;
+    background-size: cover;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+  }
+
+  .click__score__clicked {
+    box-shadow: 0 0 0 2px #3498db inset;
+  }
+}
+
+@media screen and (min-width: 376px) and (max-width: 414px) {
+  .container__score {
+    text-align: left;
+    width: 350px;
+    padding: 10px;
+    margin-left: 20px;
+  }
+
+  .click__score__not_clicked {
+    all: unset;
+    background-size: cover;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+  }
+
+  .click__score__clicked {
+    box-shadow: 0 0 0 2px #3498db inset;
+  }
+}
+
+@media screen and (min-width: 421px) and (max-width: 768px) {
+  .container__score {
+    text-align: left;
+    width: 350px;
+    padding: 10px;
+    margin-left: 370px;
+  }
+
+  .click__score__not_clicked {
+    all: unset;
+    background-size: cover;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+  }
+
+  .click__score__clicked {
+    box-shadow: 0 0 0 2px #3498db inset;
+  }
+}
+
+@media screen and (min-width: 787px) and (max-width: 1024px) {
+  .container__score {
+    text-align: right;
+    width: 350px;
+    padding: 10px;
+    margin-left: 550px;
+  }
+
+  .click__score__not_clicked {
+    all: unset;
+    background-size: cover;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+  }
+
+  .click__score__clicked {
+    box-shadow: 0 0 0 2px #3498db inset;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .container__score {
+    text-align: right;
+    width: 350px;
+    padding: 10px;
+    margin-left: 950px;
+  }
+
+  .click__score__not_clicked {
+    all: unset;
+    background-size: cover;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+  }
+
+  .click__score__clicked {
+    box-shadow: 0 0 0 2px #3498db inset;
+  }
+}
+/* .container__score {
+  text-align: left;
+  width: 400px;
+  margin-left: 300px;
   padding: 20px;
 }
 
@@ -111,5 +234,5 @@ export default {
 
 .click__score__clicked {
   box-shadow: 0 0 0 2px #3498db inset;
-}
+} */
 </style>

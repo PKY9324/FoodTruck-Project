@@ -1,36 +1,34 @@
 <template>
-    <button class="google" @click.prevent="onSigninGoogle">
-        <span>
-            <font-awesome-icon :icon="googleIcon" size="2x" />
-        </span>
-        <span>
-            구글로 로그인
-        </span>
-        <span></span>
-    </button>
+  <button class="google" @click.prevent="onSigninGoogle">
+    <span>
+      <font-awesome-icon :icon="googleIcon" size="2x"/>
+    </span>
+    <span>구글로 로그인</span>
+    <span></span>
+  </button>
 </template>
 
 <script>
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faGoogle } from '@fortawesome/free-brands-svg-icons'
-import firebase from 'firebase/app'
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
+import firebase from "firebase/app";
 
 export default {
-  name: 'GoogleButton',
+  name: "GoogleButton",
   methods: {
     onSigninGoogle() {
-      this.$store.dispatch('signUserInGoogle')
+      this.$store.dispatch("signUserInGoogle");
     }
   },
   computed: {
     googleIcon() {
-      return faGoogle
+      return faGoogle;
     }
   },
   components: {
     FontAwesomeIcon
   }
-}
+};
 </script>
 
 <style>

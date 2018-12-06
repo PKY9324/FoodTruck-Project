@@ -6,7 +6,7 @@
         <div class="review__thum">
           <div
             class="review__photo"
-            :style="`background-image: url('${description.photoUrl}?width=50&height=50')`"
+            :style="`background-image: url('${description.photoUrl}?${dynamicQuery}')`"
           ></div>
           <p>{{ description.name }}</p>
           <p class="review__star">{{ description.star }}점</p>
@@ -21,11 +21,13 @@
 <script>
 import firebase from "firebase/app";
 import { foodtruckRef } from "../../../config/firebaseInit.js";
+import _ from "lodash";
 
 export default {
   data() {
     return {
-      descriptions: {}
+      descriptions: {},
+      dynamicQuery: ""
     };
   },
   created() {
@@ -33,6 +35,16 @@ export default {
       "descriptions",
       foodtruckRef.child(this.$route.params.objectID).child("description")
     );
+
+    const checkUrl = _.values(this.$store.getters.user.photoUrl);
+    if (checkUrl[9] === "r") {
+      //facebook
+      this.dynamicQuery = "width=50&height=50";
+    } else if (checkUrl[9] === "h") {
+      //google
+      this.dynamicQuery = "sz=50";
+    }
+    // console.log(this.dynamicQuery);
   }
   // watch: {
   //   descriptions(val) {
@@ -43,7 +55,289 @@ export default {
 </script>
 
 <style>
-#review-container {
+@media screen and (max-width: 360px) {
+  #review-container {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+
+  .conatiner__review__inner:hover {
+    background-color: gainsboro;
+  }
+
+  .review__title {
+    margin-top: 20px;
+    margin-left: 20px;
+    text-align: left;
+  }
+
+  .conatiner__review__inner {
+    display: flex;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .review__star {
+    font-size: 12px;
+    margin-right: 4px;
+    text-align: right;
+  }
+
+  .review__photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+
+  .review__desp {
+    display: inline;
+    margin-left: 30px;
+    left: 8.5rem;
+    white-space: pre-line;
+    word-wrap: break-word;
+    overflow: auto;
+  }
+}
+
+@media screen and (min-width: 361px) and (max-width: 375px) {
+  #review-container {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+
+  .conatiner__review__inner:hover {
+    background-color: gainsboro;
+  }
+
+  .review__title {
+    margin-top: 20px;
+    margin-left: 20px;
+    text-align: left;
+  }
+
+  .conatiner__review__inner {
+    display: flex;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .review__star {
+    font-size: 12px;
+    margin-right: 4px;
+    text-align: right;
+  }
+
+  .review__thum {
+  }
+
+  .review__photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+
+  .review__desp {
+    display: inline;
+    margin-left: 30px;
+    left: 8.5rem;
+    white-space: pre-line;
+    word-wrap: break-word;
+    overflow: auto;
+  }
+}
+
+@media screen and (min-width: 376px) and (max-width: 414px) {
+  #review-container {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+
+  .conatiner__review__inner:hover {
+    background-color: gainsboro;
+  }
+
+  .review__title {
+    margin-top: 20px;
+    margin-left: 20px;
+    text-align: left;
+  }
+
+  .conatiner__review__inner {
+    display: flex;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .review__star {
+    font-size: 12px;
+    margin-right: 4px;
+    text-align: right;
+  }
+
+  .review__photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+
+  .review__desp {
+    display: inline;
+    margin-left: 30px;
+    left: 8.5rem;
+    white-space: pre-line;
+    word-wrap: break-word;
+    overflow: auto;
+  }
+}
+
+@media screen and (min-width: 421px) and (max-width: 768px) {
+  #review-container {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+
+  .conatiner__review__inner:hover {
+    background-color: gainsboro;
+  }
+
+  .review__title {
+    margin-top: 20px;
+    margin-left: 20px;
+    text-align: left;
+  }
+
+  .conatiner__review__inner {
+    display: flex;
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+
+  .review__star {
+    font-size: 12px;
+    margin-right: 4px;
+    text-align: right;
+  }
+
+  .review__photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+
+  .review__desp {
+    display: inline;
+    margin-left: 30px;
+    left: 8.5rem;
+    white-space: pre-line;
+    word-wrap: break-word;
+    overflow: auto;
+  }
+}
+
+@media screen and (min-width: 787px) and (max-width: 1024px) {
+  #review-container {
+    margin-left: 60px;
+    margin-right: 60px;
+  }
+
+  .conatiner__review__inner:hover {
+    background-color: gainsboro;
+  }
+
+  .review__title {
+    margin-top: 20px;
+    margin-left: 20px;
+    text-align: left;
+  }
+
+  .conatiner__review__inner {
+    display: flex;
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+
+  .review__star {
+    font-size: 12px;
+    margin-right: 4px;
+    text-align: right;
+  }
+
+  .review__photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+
+  .review__desp {
+    display: inline;
+    margin-left: 30px;
+    left: 8.5rem;
+    white-space: pre-line;
+    word-wrap: break-word;
+    overflow: auto;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  #review-container {
+    margin-left: 60px;
+    margin-right: 60px;
+  }
+
+  .conatiner__review__inner:hover {
+    background-color: gainsboro;
+  }
+
+  .review__title {
+    margin-top: 20px;
+    margin-left: 20px;
+    text-align: left;
+  }
+
+  .conatiner__review__inner {
+    display: flex;
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+
+  .review__star {
+    font-size: 12px;
+    margin-right: 4px;
+    text-align: right;
+  }
+
+  .review__photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+
+  .review__desp {
+    display: inline;
+    margin-left: 30px;
+    left: 8.5rem;
+    white-space: pre-line;
+    word-wrap: break-word;
+    overflow: auto;
+  }
+}
+
+/* #review-container {
   margin-left: 60px;
   margin-right: 60px;
 }
@@ -55,6 +349,7 @@ export default {
 .review__title {
   margin-top: 20px;
   margin-left: 20px;
+  text-align: left;
 }
 
 .conatiner__review__inner {
@@ -89,5 +384,5 @@ export default {
   white-space: pre-line;
   word-wrap: break-word;
   overflow: auto;
-}
+} */
 </style>

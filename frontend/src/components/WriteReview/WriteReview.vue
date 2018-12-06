@@ -28,7 +28,138 @@ export default {
 </script>
 
 <style>
-textarea {
+@media screen and (max-width: 360px) {
+  textarea {
+    all: unset;
+    width: 300px;
+    height: 150px;
+    padding: 12px 15px 30px 15px;
+    border: 1px solid #dbdbdb;
+    background-color: #ffffff;
+    border-radius: 3px;
+    box-sizing: border-box;
+    text-align: left;
+    font-size: 16px;
+    color: #000000;
+    resize: none;
+    overflow-wrap: break-word;
+  }
+
+  .container__textarea {
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width: 361px) and (max-width: 375px) {
+  textarea {
+    all: unset;
+    width: 300px;
+    height: 150px;
+    padding: 12px 15px 30px 15px;
+    border: 1px solid #dbdbdb;
+    background-color: #ffffff;
+    border-radius: 3px;
+    box-sizing: border-box;
+    text-align: left;
+    font-size: 16px;
+    color: #000000;
+    resize: none;
+    overflow-wrap: break-word;
+  }
+
+  .container__textarea {
+    display: inline-block;
+  }
+}
+
+@media screen and (min-width: 376px) and (max-width: 414px) {
+  textarea {
+    all: unset;
+    width: 300px;
+    height: 150px;
+    padding: 12px 15px 30px 15px;
+    border: 1px solid #dbdbdb;
+    background-color: #ffffff;
+    border-radius: 3px;
+    box-sizing: border-box;
+    text-align: left;
+    font-size: 16px;
+    color: #000000;
+    resize: none;
+    overflow-wrap: break-word;
+  }
+
+  .container__textarea {
+    display: inline-block;
+  }
+}
+
+@media screen and (min-width: 421px) and (max-width: 768px) {
+  textarea {
+    all: unset;
+    width: 600px;
+    height: 150px;
+    padding: 12px 15px 30px 15px;
+    border: 1px solid #dbdbdb;
+    background-color: #ffffff;
+    border-radius: 3px;
+    box-sizing: border-box;
+    text-align: left;
+    font-size: 16px;
+    color: #000000;
+    resize: none;
+    overflow-wrap: break-word;
+  }
+
+  .container__textarea {
+    display: inline-block;
+  }
+}
+
+@media screen and (min-width: 787px) and (max-width: 1024px) {
+  textarea {
+    all: unset;
+    width: 600px;
+    height: 150px;
+    padding: 12px 15px 30px 15px;
+    border: 1px solid #dbdbdb;
+    background-color: #ffffff;
+    border-radius: 3px;
+    box-sizing: border-box;
+    text-align: left;
+    font-size: 16px;
+    color: #000000;
+    resize: none;
+    overflow-wrap: break-word;
+  }
+
+  .container__textarea {
+    display: inline-block;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  textarea {
+    all: unset;
+    width: 600px;
+    height: 150px;
+    padding: 12px 15px 30px 15px;
+    border: 1px solid #dbdbdb;
+    background-color: #ffffff;
+    border-radius: 3px;
+    box-sizing: border-box;
+    text-align: left;
+    font-size: 16px;
+    color: #000000;
+    resize: none;
+    overflow-wrap: break-word;
+  }
+
+  .container__textarea {
+    display: inline-block;
+  }
+}
+/* textarea {
   all: unset;
   width: 678px;
   height: 150px;
@@ -37,6 +168,7 @@ textarea {
   background-color: #ffffff;
   border-radius: 3px;
   box-sizing: border-box;
+  text-align: left;
   font-size: 16px;
   color: #000000;
   resize: none;
@@ -46,5 +178,5 @@ textarea {
 .container__textarea {
   display: inline-block;
   margin-left: 30px;
-}
+} */
 </style>

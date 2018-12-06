@@ -10,9 +10,9 @@
         <Photo/>
         <write-review/>
       </div>
-      <div class="container__write__image__upload">
+      <!-- <div class="container__write__image__upload">
         <image-upload/>
-      </div>
+      </div>-->
       <div class="container__write__bottom">
         <Save/>
       </div>
@@ -43,7 +43,170 @@ export default {
 </script>
 
 <style>
-.container__write__main {
+@media screen and (max-width: 360px) {
+  .container__write__main {
+    margin: 0 auto;
+  }
+
+  .container__write__top {
+    padding: 20px;
+    margin-top: 60px;
+    text-align: center;
+  }
+
+  .container__write__middle {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .container__write__bottom {
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 361px) and (max-width: 375px) {
+  .container__write__main {
+    margin: 0 auto;
+  }
+
+  .container__write__top {
+    padding: 20px;
+    margin-top: 80px;
+    text-align: center;
+  }
+
+  .container__write__middle {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .container__write__image__upload {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .container__write__bottom {
+    text-align: center;
+    margin-top: 30px;
+  }
+}
+
+@media screen and (min-width: 376px) and (max-width: 414px) {
+  .container__write__main {
+    margin: 0 auto;
+  }
+
+  .container__write__top {
+    padding: 20px;
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  .container__write__middle {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .container__write__image__upload {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .container__write__bottom {
+    text-align: center;
+    margin-top: 10px;
+  }
+}
+
+@media screen and (min-width: 421px) and (max-width: 768px) {
+  .container__write__main {
+    margin: 0 auto;
+  }
+
+  .container__write__top {
+    padding: 20px;
+    margin-top: 40px;
+    text-align: left;
+  }
+
+  .container__write__middle {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .container__write__image__upload {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .container__write__bottom {
+    text-align: center;
+    margin-top: 10px;
+  }
+}
+
+@media screen and (min-width: 787px) and (max-width: 1024px) {
+  .container__write__main {
+    margin: 0 auto;
+  }
+
+  .container__write__top {
+    padding: 20px;
+    margin-top: 40px;
+    text-align: left;
+  }
+
+  .container__write__middle {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .container__write__image__upload {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .container__write__bottom {
+    text-align: center;
+    margin-top: 10px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .container__write__main {
+    margin: 0 auto;
+  }
+
+  .container__write__top {
+    padding: 20px;
+    margin-top: 60px;
+    margin-right: 390px;
+    text-align: center;
+  }
+
+  .container__write__middle {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .container__write__image__upload {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .container__write__bottom {
+    text-align: center;
+    margin-top: 10px;
+  }
+}
+
+/* .container__write__main {
   margin: 0 auto;
 }
 
@@ -65,9 +228,11 @@ export default {
 
 .container__write__image__upload {
   text-align: center;
+  margin-bottom: 50px;
 }
 
 .container__write__bottom {
   text-align: center;
-}
+  margin-top: 30px;
+} */
 </style>

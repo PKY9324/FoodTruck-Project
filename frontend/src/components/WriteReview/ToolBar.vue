@@ -11,12 +11,47 @@ export default {};
 </script>
 
 <style>
-.title {
-  font-size: 24px;
-  font-weight: 700;
-  position: absolute;
-  left: 49%;
-  transform: translateX(-50%);
-  color: white;
+@media screen and (max-width: 375px) {
+  .title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-left: 130px;
+    color: white !important;
+  }
+}
+
+@media screen and (min-width: 376px) and (max-width: 414px) {
+  .title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-left: 150px;
+    color: white !important;
+  }
+}
+
+@media screen and (min-width: 421px) and (max-width: 768px) {
+  .title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-left: 320px;
+    color: white !important;
+  }
+}
+
+@media screen and (min-width: 787px) and (max-width: 1024px) {
+  .title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-left: 410px;
+    color: white !important;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-left: 900px;
+    color: white !important;
+  }
 }
 </style>

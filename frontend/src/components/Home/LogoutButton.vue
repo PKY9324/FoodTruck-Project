@@ -24,6 +24,9 @@ export default {
   padding-left: 30px;
   right: 0px;
   top: 0px;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
   z-index: 1;
   cursor: pointer;
 }

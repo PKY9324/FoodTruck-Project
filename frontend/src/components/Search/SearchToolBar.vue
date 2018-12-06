@@ -28,14 +28,78 @@ export default {
 </script>
 
 <style>
-.toolbar___title {
+@media screen and (max-width: 375px) {
+  .toolbar___title {
+    all: unset;
+    position: absolute;
+    left: 10px;
+    top: 11px;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+  }
+}
+
+@media screen and (min-width: 376px) and (max-width: 414px) {
+  .toolbar___title {
+    all: unset;
+    position: absolute;
+    left: 10px;
+    top: 11px;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+  }
+}
+
+@media screen and (min-width: 415px) and (max-width: 768px) {
+  .toolbar___title {
+    all: unset;
+    position: absolute;
+    left: 10px;
+    top: 11px;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+  }
+}
+
+@media screen and (min-width: 787px) and (max-width: 1024px) {
+  .toolbar___title {
+    all: unset;
+    position: absolute;
+    left: 10px;
+    top: 11px;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .toolbar___title {
+    all: unset;
+    position: absolute;
+    left: 10px;
+    top: 11px;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+  }
+}
+/* .toolbar___title {
   all: unset;
   position: absolute;
   left: 16px;
   top: 11px;
   font-size: 20px;
   font-weight: 600;
-  color: white;
+  color: white ! important;
   cursor: pointer;
-}
+} */
 </style>

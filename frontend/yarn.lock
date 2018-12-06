@@ -10600,6 +10600,11 @@ uuid@^3.0.0, uuid@^3.0.1, uuid@^3.3.2:
   resolved "http://registry.npm.taobao.org/uuid/download/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
   integrity sha1-G0r0lV6zB3xQHCOHL8ZROBFYcTE=
 
+v-lazy-image@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/v-lazy-image/-/v-lazy-image-1.2.2.tgz#1ae4f333b26c9fb4e090d88bbc9d95b640e8a139"
+  integrity sha512-xbbnQvgc4YILToaTU+6AuMqnl3yixK9Jvd+SbT634MaEBlAN1j4bTDujceoXWk2zDFg2tG2e6cEdXuWAygs/0g==
+
 valid-url@^1:
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/valid-url/-/valid-url-1.0.9.tgz#1c14479b40f1397a75782f115e4086447433a200"

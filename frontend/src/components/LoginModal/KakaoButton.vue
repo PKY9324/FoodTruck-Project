@@ -38,7 +38,7 @@ export default {
       });
     },
     onFailure: data => {
-      console.log(data);
+      // console.log(data);
       console.log("failure");
     }
   }

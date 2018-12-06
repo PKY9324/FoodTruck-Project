@@ -1,0 +1,19 @@
+{
+  "name": "foodtruck-project",
+  "version": "1.0.0",
+  "description": "모바일웹 푸드트럭 프로젝트 (Mobile Web Lecure - Foodtruck Project)",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd frontend && yarn serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PKY9324/FoodTruck-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PKY9324/FoodTruck-Project/issues"
+  },
+  "homepage": "https://github.com/PKY9324/FoodTruck-Project#readme"
+}
